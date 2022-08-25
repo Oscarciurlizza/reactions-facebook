@@ -1,9 +1,8 @@
-import { useState } from "react";
-
 const ModalEmojis = (
   {
-    mouseEnter,
     setMouseEnter,
+    animateModal,
+    setAnimateModal,
     like,
     setLike,
     love,
@@ -19,13 +18,17 @@ const ModalEmojis = (
   }) => { 
 
   const handleMouseLeave = () => {
-    setMouseEnter(false);
+    setAnimateModal(false);
+
+    setTimeout(() => {
+      setMouseEnter(false);
+    }, 500);
   }
 
   return (
     <div
       onMouseLeave={handleMouseLeave}
-      className='bg-white w-11/12 flex justify-center flex-row absolute bottom-16 right-20 rounded-full'>
+      className={`bg-white flex justify-center flex-row absolute bottom-16 right-20 rounded-full w-11/12 ${animateModal ? 'opacity-100 transition' : 'overflow-hidden opacity-0 transition'}`}>
         <img
           className='w-10 cursor-pointer'
           onClick={() => setLike(like + 1)} 

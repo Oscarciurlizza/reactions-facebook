@@ -17,7 +17,7 @@ const Header = ({ avatar, name, user }) => {
             {name}
           </h2>
           <p
-            className='text-gray-400 text-xs font-semibold'>
+            className='text-gray-500 text-xs font-bold'>
             {user}
           </p>
         </div>

@@ -29,6 +29,7 @@ const Reaction = (
     <>
         <div>
         <button
+          type='button'
           className='cursor-pointer'
           onClick={handleClick} >
           <VscKebabVertical />

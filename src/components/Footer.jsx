@@ -7,6 +7,7 @@ import Reaction from "./Reaction";
 const Footer = () => {
 
   const [mouseEnter, setMouseEnter] = useState(false);
+  const [animateModal, setAnimateModal] = useState(false);
 
   const [like, setLike] = useState(JSON.parse(localStorage.getItem('like')) ?? 0);
   const [love, setLove] = useState(JSON.parse(localStorage.getItem('love')) ?? 0);
@@ -36,6 +37,10 @@ const Footer = () => {
 
   const handleMouseEnter = () => {
     setMouseEnter(true);
+
+    setTimeout(() => {
+      setAnimateModal(true);
+    }, 300);
   }
 
   return (
@@ -47,8 +52,9 @@ const Footer = () => {
       {
         mouseEnter && (
           <ModalEmojis
-            mouseEnter={mouseEnter}
             setMouseEnter={setMouseEnter}
+            animateModal={animateModal}
+            setAnimateModal={setAnimateModal}
             like={like}
             setLike={setLike}
             love={love}
